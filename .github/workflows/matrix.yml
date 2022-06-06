@@ -5,10 +5,17 @@ on:
 
 jobs:
   node-version:
-    runs-on: ubuntu-latest
+    #using strategy, we will rerun this job for each element in array
+    strategy:
+      matrix:
+        #job will run 9 times
+        os: [macos-latest, ubuntu-latest, windows-latest]
+        node_version: [6, 8, 10]
+      max-parallel: 2
+    runs-on: ${{ matrix.os }}
     steps:
       - name: Log Node Version
         run : node -v
       - uses: actions/setup-node@v1
         with:
-          node-version: 6 #change node version to 6
+          node-version: ${{ matrix.node_version }}
