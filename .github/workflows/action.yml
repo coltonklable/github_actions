@@ -1,17 +1,17 @@
 name: Actions Workflow
 
 on: 
-  push: 
-    branches: #can also do branches-ignore, but not simultaneously
-      - master
-      - 'feature/*' #will match anything starting with feature/
-      - '!feature/featC' #this will ignore a specific branch
-    tags:
-      - v1.* 
-    paths:
-      - '**.js' #will match any javascript file in repo
-  # repository_dispatch: 
-  #   types: [build]
+  # push: 
+  #   branches: #can also do branches-ignore, but not simultaneously
+  #     - master
+  #     - 'feature/*' #will match anything starting with feature/
+  #     - '!feature/featC' #this will ignore a specific branch
+  #   tags:
+  #     - v1.* 
+  #   paths:
+  #     - '**.js' #will match any javascript file in repo
+  repository_dispatch: 
+     types: [build]
   #push:
   # pull-request:
   #   #make an object
