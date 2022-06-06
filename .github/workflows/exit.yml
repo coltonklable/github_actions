@@ -14,6 +14,6 @@ jobs:
         run: echo "Failure"
       - name: Run on Success
         if: success()
-        run: echo "Success!"
+        run: echo "${{ toJSON(github) }}"
 
     
