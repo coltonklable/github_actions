@@ -18,6 +18,7 @@ jobs:
         if: failure()
         env:
           JOB_CONTEXT: ${{ toJSON(job) }}
+          
         run: echo "$JOB_CONTEXT"
 
   second-job-success:

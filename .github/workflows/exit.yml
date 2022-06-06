@@ -10,11 +10,14 @@ jobs:
       - name: Dump job context 
         run: echo '${{ toJSON(job) }}'
       - name: Run on Failure
-        if: failure()
+        #if: failure()
         run: echo "Failure"
       - name: Run on Success
         env: 
           JOB_CONTEXT: ${{ toJSON(job) }}
-        run: echo "$JOB_CONTEXT "
+          GITHUB_CONTEXT: ${{ toJSON(github) }}
+        run: |
+          echo "$JOB_CONTEXT"
+          echo "GITHUB_CONTEXT"
 
     
