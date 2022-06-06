@@ -1,0 +1,19 @@
+name: Explicitly Reading and Using Exit Codes in Expressions
+
+on: push
+
+jobs:
+  dump-context:
+    runs-on: ubuntu-latest
+    steps:
+      #this isn't exit code, but it is exit message
+      - name: Dump job context 
+        run: echo '${{ toJSON(job) }}'
+      - name: Run on Failure
+        if: failure()
+        run: echo "Failure"
+      - name: Run on Success
+        if: ${{ toJSON(job).status == "success" }}
+        run: echo "Success"
+
+    
