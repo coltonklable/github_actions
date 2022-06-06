@@ -11,6 +11,13 @@ jobs:
         #job will run 9 times
         os: [macos-latest, ubuntu-latest, windows-latest]
         node_version: [6, 8, 10]
+        exclude:
+          #if we want to skip a certain combo, we can exclude it
+          - os: windows-latest
+            node_version: 10
+          - os: macos-latest
+            node_version: 6
+        in
       max-parallel: 2
     runs-on: ${{ matrix.os }}
     steps:
