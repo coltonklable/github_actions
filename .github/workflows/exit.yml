@@ -13,7 +13,7 @@ jobs:
         if: failure()
         run: echo "Failure"
       - name: Run on Success
-        if: ${{ toJSON(job).status == "success" }}
+        if: ${{ toJSON(job) == "success" }}
         run: echo "Success"
 
     
