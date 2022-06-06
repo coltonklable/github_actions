@@ -8,7 +8,7 @@ jobs:
       - name: Dump GitHub context
         id: github_context_step
         run: echo '${{ toJSON(github) }}'
-      - name: Dump job context
+      - name: Dump job context #this isn't exit code, but it is exit message
         run: echo '${{ toJSON(job) }}'
       - name: Dump steps context
         run: echo '${{ toJSON(steps) }}'
