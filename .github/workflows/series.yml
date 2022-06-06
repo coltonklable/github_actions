@@ -6,21 +6,25 @@ jobs:
   first-job-success:
     runs-on: ubuntu-latest
     steps:
-      run: echo "Success!"
+      - name: Success
+        run: echo "Success!"
   
   first-job-fail:
     runs-on: ubuntu-latest
     steps:
-      run: eco "Failure!"
+      - name: Fail
+        run: eco "Failure!"
 
   second-job-success:
     runs-on: ubuntu-latest
     needs: [first-job-success]
     steps:
-      run: echo "Success!"
+      - name: second sucess
+        run: echo "Success!"
 
   second-job-failure:
     runs-on: ubuntu-latest
     needs: [first-job-failure]
     steps:
-      run: echo "Failure!"
+      - name: second fail
+        run: echo "Failure!"
