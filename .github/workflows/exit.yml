@@ -15,6 +15,6 @@ jobs:
       - name: Run on Success
         env: 
           JOB_CONTEXT: ${{ toJSON(job) }}
-        run: echo "$JOB_CONTEXT"
+        run: echo "$JOB_CONTEXT.status"
 
     
