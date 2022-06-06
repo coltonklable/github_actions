@@ -16,7 +16,7 @@ jobs:
         run: eco "Failure!"
       - name: dump job context
         if: failure()
-        run: echo ${{ toJSON(jobs) }}
+        run: echo ${{ toJSON(job) }}
 
   second-job-success:
     runs-on: ubuntu-latest
