@@ -1,0 +1,49 @@
+name: Actions Workflow
+
+on: 
+  push: 
+    branches: #can also do branches-ignore, but not simultaneously
+      - master
+      - 'feature/*' #will match anything starting with feature/
+      - '!feature/featC' #this will ignore a specific branch
+    tags:
+      - v1.* 
+    paths:
+      - '**.js' #will match any javascript file in repo
+  # repository_dispatch: 
+  #   types: [build]
+  #push:
+  # pull-request:
+  #   #make an object
+  #   types: [closed, assigned, opened, reopened]
+  #make a cron schedule
+  # schedule:
+  #   #this will run every 5 minutes starting at minute 0
+  #   - cron: "0/5 * * * *" #'minute hour day month day of week'
+
+jobs:
+  run-github-actions:
+    runs-on: ubuntu-latest
+    steps:
+        - name: Payload
+          run: echo ${{ github.event.client_payload.env }}
+        - name: list files
+          run: |
+            pwd
+            ls
+        - name: Checkout
+          uses: actions/checkout@v1 #clones repo into runner, giving access to all files
+
+        - name: list files after checkout
+          run: |
+            pwd
+            ls
+
+        - name: Simple Javascript Action
+          id: greet
+          uses: actions/hello-world-javascript-action@v1
+          with:
+            who-to-greet: Colton
+
+        - name: Log Greeting Time
+          run: echo "${{ steps.greet.outputs.time }}"
