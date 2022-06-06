@@ -3,6 +3,24 @@ name: Implicitly Reading Exit Codes Using Steps in Series
 on: push
 
 jobs:
-  first-job:
+  first-job-success:
     runs-on: ubuntu-latest
-    
+    steps:
+      run: echo "Success!"
+  
+  first-job-fail:
+    runs-on: ubuntu-latest
+    steps:
+      run: eco "Failure!"
+
+  second-job-success:
+    runs-on: ubuntu-latest
+    needs: [first-job-success]
+    steps:
+      run: echo "Success!"
+
+  second-job-failure:
+    runs-on: ubuntu-latest
+    needs: [first-job-failure]
+    steps:
+      run: echo "Failure!"
