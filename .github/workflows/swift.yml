@@ -13,7 +13,8 @@ jobs:
         run: |
           pwd
           ls
-      - name: send email
+      - name: send passing email
+        if: success()
         uses: dawidd6/action-send-mail@v3.6.1
         with:
           server_address: smtp.gmail.com
@@ -22,4 +23,7 @@ jobs:
           to: Colton.Klable@travelport.com
           from: GitHub Actions
           body: ${{ toJSON(job) }}
+      -name: send failing email
+        if: failure()
+        run: echo "fail"
 
