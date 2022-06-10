@@ -14,7 +14,7 @@ jobs:
           pwd
           ls
       - name: test job
-        run: echoo "pass"
+        run: echo "pass"
       - name: send passing email
         if: success()
         uses: dawidd6/action-send-mail@v3.6.1
@@ -25,6 +25,7 @@ jobs:
           to: Colton.Klable@travelport.com
           from: GitHub Actions
           body: ${{ toJSON(job) }}
+        run: echo ${{ toJSON(job) }}
       - name: send failing email
         if: failure()
         run: echo "fail"
