@@ -21,7 +21,7 @@ jobs:
           echo "$JOB_CONTEXT"
           echo "$GITHUB_CONTEXT"
       - name: send passing email
-        if: ${{ toJSON(job) == 'success'}}
+        if: ${{ toJSON(job).status == "success"}}
         uses: dawidd6/action-send-mail@v3.6.1
         with:
           server_address: smtp.gmail.com
