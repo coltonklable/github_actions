@@ -20,7 +20,6 @@ jobs:
         run: |
           echo "$JOB_CONTEXT"
           echo "$GITHUB_CONTEXT"
-        run: echo "pass"
       - name: send passing email
         if: success()
         uses: dawidd6/action-send-mail@v3.6.1
