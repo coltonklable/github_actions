@@ -7,7 +7,7 @@ jobs:
   pull-most-recent:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v1 #checkout will checkout the most recent code
+      #- uses: actions/checkout@v1 #checkout will checkout the most recent code
       - name: pull from repo
         run: |
           pwd
