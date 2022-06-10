@@ -32,6 +32,6 @@ jobs:
           from: GitHub Actions
           body: ${{ toJSON(job) }}
       - name: send failing email
-        jobs.email.if: cancelled()
+        if: cancelled()
         run: echo "fail"
 
