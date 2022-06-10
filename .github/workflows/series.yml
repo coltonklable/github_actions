@@ -1,6 +1,6 @@
 name: Implicitly Reading Exit Codes Using Steps in Series
 
-on: push
+on: pull-request
 
 jobs:
   first-job-success:

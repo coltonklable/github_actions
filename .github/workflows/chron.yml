@@ -1,0 +1,14 @@
+name: Team Swift Workflow
+
+on: #dispatch event/pull request and scheduled time
+  push
+
+jobs: 
+  pull-most-recent:
+    runs-on: ubuntu latest
+    steps:
+      - uses: actions/checkout@v1 #checkout will checkout the most recent code
+      - name: pull from repo
+        run: |
+          echo $GITHUB_WORKSPACE
+
