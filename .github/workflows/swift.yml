@@ -10,5 +10,6 @@ jobs:
       - uses: actions/checkout@v1 #checkout will checkout the most recent code
       - name: pull from repo
         run: |
-          echo $GITHUB_WORKSPACE
+          pwd
+          ls
 
