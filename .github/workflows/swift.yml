@@ -23,7 +23,7 @@ jobs:
           to: Colton.Klable@travelport.com
           from: GitHub Actions
           body: ${{ toJSON(job) }}
-      -name: send failing email
+      - name: send failing email
         if: failure()
         run: echo "fail"
 
