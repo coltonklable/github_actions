@@ -2,6 +2,8 @@ name: Team Swift Workflow
 
 on: #dispatch event/pull request and scheduled time
   push
+env: 
+  WF_BOOL: "success"
 
 jobs: 
   pull-most-recent-and-email:
@@ -21,7 +23,7 @@ jobs:
           echo "$JOB_CONTEXT"
           echo "$GITHUB_CONTEXT"
       - name: send passing email
-        if: ${{ toJSON(job).status == 'success'}}
+        if: ${{ WF_BOOL == 'success' }}
         uses: dawidd6/action-send-mail@v3.6.1
         with:
           server_address: smtp.gmail.com
