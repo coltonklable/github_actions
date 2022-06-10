@@ -1,6 +1,6 @@
 name: Explicitly Reading and Using Exit Codes in Expressions
 
-on: pull-request
+on: pull_request
 
 jobs:
   dump-context:
