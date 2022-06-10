@@ -17,9 +17,10 @@ jobs:
       - name: test job
         env: 
           JOB_CONTEXT: ${{ toJSON(job) }}
+          GITHUB_CONTEXT: ${{ toJSON(github) }}
         run: |
           echo "$JOB_CONTEXT"
-          echo "${{ toJSON(github) }}"
+          echo "$GITHUB_CONTEXT"
       - name: send passing email
         id: email
         if: success()
