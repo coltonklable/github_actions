@@ -13,14 +13,13 @@ jobs:
           run: |
             pwd
             ls
-
-    - name: send email
-      uses: dawidd6/action-send-mail@v3.6.1
-      with:
-        server_address: smtp.gmail.com
-        server_port: 465
-        subject: Action Results
-        to: Colton.Klable@travelport.com
-        from: GitHub Actions
-        body: ${{ toJSON(job) }}
+      - name: send email
+        uses: dawidd6/action-send-mail@v3.6.1
+        with:
+          server_address: smtp.gmail.com
+          server_port: 465
+          subject: Action Results
+          to: Colton.Klable@travelport.com
+          from: GitHub Actions
+          body: ${{ toJSON(job) }}
 
