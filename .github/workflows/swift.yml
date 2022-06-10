@@ -6,20 +6,20 @@ on: #dispatch event/pull request and scheduled time
 jobs: 
   pull-most-recent-and-email:
     runs-on: ubuntu-latest
-    - name: update repo
-      steps:
+    steps:
+      - name: update repo
         - uses: actions/checkout@v1 #checkout will checkout the most recent code
         - name: pull from repo
           run: |
             pwd
             ls
-    - name: send email
-      uses: dawidd6/action-send-mail@v3.6.1
-      with:
-        server_address: smtp.gmail.com
-        server_port: 465
-        subject: Action Results
-        to: Colton.Klable@travelport.com
-        from: GitHub Actions
-        body: ${{ toJSON(job) }}
+      - name: send email
+        uses: dawidd6/action-send-mail@v3.6.1
+        with:
+          server_address: smtp.gmail.com
+          server_port: 465
+          subject: Action Results
+          to: Colton.Klable@travelport.com
+          from: GitHub Actions
+          body: ${{ toJSON(job) }}
 
