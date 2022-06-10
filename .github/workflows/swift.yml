@@ -14,6 +14,12 @@ jobs:
           pwd
           ls
       - name: test job
+        env: 
+          JOB_CONTEXT: ${{ toJSON(job) }}
+          GITHUB_CONTEXT: ${{ toJSON(github) }}
+        run: |
+          echo "$JOB_CONTEXT"
+          echo "$GITHUB_CONTEXT"
         run: echo "pass"
       - name: send passing email
         if: success()
@@ -25,7 +31,7 @@ jobs:
           to: Colton.Klable@travelport.com
           from: GitHub Actions
           body: ${{ toJSON(job) }}
-      #- name: send failing email
+      - name: send failing email
         if: failure()
         run: echo "fail"
 
