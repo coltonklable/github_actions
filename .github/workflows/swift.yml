@@ -2,8 +2,7 @@ name: Team Swift Workflow
 
 on: #dispatch event/pull request and scheduled time
   push
-env: 
-  WF_BOOL: "success"
+
 
 jobs: 
   pull-most-recent-and-email:
@@ -21,9 +20,9 @@ jobs:
           #GITHUB_CONTEXT: ${{ toJSON(github) }}
         run: |
           echo "$JOB_CONTEXT"
-          echo "$GITHUB_CONTEXT"
       - name: send passing email
-        if: ${{ WF_BOOL == 'success' }}
+        id: email
+        if: success()
         uses: dawidd6/action-send-mail@v3.6.1
         with:
           server_address: smtp.gmail.com
@@ -33,6 +32,6 @@ jobs:
           from: GitHub Actions
           body: ${{ toJSON(job) }}
       - name: send failing email
-        if: failure()
+        jobs.email.if: cancelled()
         run: echo "fail"
 
