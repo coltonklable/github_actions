@@ -17,9 +17,9 @@ jobs:
       - name: test job
         env: 
           JOB_CONTEXT: ${{ toJSON(job) }}
-          #GITHUB_CONTEXT: ${{ toJSON(github) }}
         run: |
           echo "$JOB_CONTEXT"
+          echo "${{ toJSON(github) }}"
       - name: send passing email
         id: email
         if: success()
@@ -32,6 +32,7 @@ jobs:
           from: GitHub Actions
           body: ${{ toJSON(job) }}
       - name: send failing email
-        if: cancelled()
+        #only run is email step doesn't run
+        if: cancelled() 
         run: echo "fail"
 
