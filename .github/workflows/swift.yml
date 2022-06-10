@@ -13,6 +13,8 @@ jobs:
         run: |
           pwd
           ls
+      - name: test job
+        run: echoo "pass"
       - name: send passing email
         if: success()
         uses: dawidd6/action-send-mail@v3.6.1
