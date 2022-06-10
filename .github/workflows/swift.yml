@@ -5,24 +5,22 @@ on: #dispatch event/pull request and scheduled time
 
 jobs: 
   pull-most-recent:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v1 #checkout will checkout the most recent code
-      - name: pull from repo
-        run: |
-          pwd
-          ls
+    - name: update repo
+      runs-on: ubuntu-latest
+      steps:
+        - uses: actions/checkout@v1 #checkout will checkout the most recent code
+        - name: pull from repo
+          run: |
+            pwd
+            ls
 
-  email-results:
-    runs-on: ubuntu-latest
-    steps:
-      - name: send email
-        uses: dawidd6/action-send-mail@v3.6.1
-        with:
-          server_address: smtp.gmail.com
-          server_port: 465
-          subject: Action Results
-          to: Colton.Klable@travelport.com
-          from: GitHub Actions
-          body: ${{ toJSON(job) }}
+    - name: send email
+      uses: dawidd6/action-send-mail@v3.6.1
+      with:
+        server_address: smtp.gmail.com
+        server_port: 465
+        subject: Action Results
+        to: Colton.Klable@travelport.com
+        from: GitHub Actions
+        body: ${{ toJSON(job) }}
 
