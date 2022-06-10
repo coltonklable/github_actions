@@ -5,7 +5,7 @@ on: #dispatch event/pull request and scheduled time
 
 jobs: 
   pull-most-recent:
-    runs-on: ubuntu latest
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1 #checkout will checkout the most recent code
       - name: pull from repo
