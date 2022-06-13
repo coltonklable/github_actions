@@ -24,14 +24,15 @@ jobs:
       - name: send passing email
         id: email
         if: success()
-        uses: dawidd6/action-send-mail@v3.6.1
-        with:
-          server_address: smtp.gmail.com
-          server_port: 465
-          subject: Action Results
-          to: Colton.Klable@travelport.com
-          from: GitHub Actions
-          body: ${{ toJSON(job) }}
+        run: echo "Email sent"
+        # uses: dawidd6/action-send-mail@v3.6.1
+        # with:
+        #   server_address: smtp.gmail.com
+        #   server_port: 465
+        #   subject: Action Results
+        #   to: Colton.Klable@travelport.com
+        #   from: GitHub Actions
+        #   body: ${{ toJSON(job) }}
       - name: send failing email
         #only run is email step doesn't run
         if: cancelled() 
