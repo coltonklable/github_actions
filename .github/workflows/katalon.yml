@@ -1,4 +1,4 @@
-name: Katalon Test Suite
+name: Testing Katalon Run-Time
 on: push
   # push:
   #   branches: [ master ]
