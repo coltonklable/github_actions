@@ -1,7 +1,7 @@
 name: Team Swift Workflow
 
 on: #dispatch event/pull request and scheduled time
-  push
+  pull_request
 
 
 jobs: 
