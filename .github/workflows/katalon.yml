@@ -22,5 +22,5 @@ jobs:
       run : echo "This is where we will email success"
     - name: Failed Test
       #will only run if the successful test step is skipped
-      if: canceled()
+      if: cancelled()
       run: echo "This is where we will email failure"
