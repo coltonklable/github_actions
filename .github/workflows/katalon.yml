@@ -1,11 +1,8 @@
 name: Testing Katalon Run-Time
 on:
   push:
-    branches:
-      - master
   schedule:
-    #Cron expression for 5:00 PM MST
-    - cron: "*/5 * * * *"
+    - cron: '*/5 * * * *' #every 5 minutes
   
 
 jobs:
