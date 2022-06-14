@@ -23,7 +23,7 @@ jobs:
     - name: Successful Test
       shell: cmd
       if: success()
-      run : Write-Host ${{ toJSON(job) }}
+      run : echo ${{ toJSON(job) }}
     #Email on Failure
     - name: Failed Test
       if: cancelled()
