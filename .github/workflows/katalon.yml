@@ -22,7 +22,7 @@ jobs:
     #Email on Success
     - name: Successful Test
       if: success()
-      run : echo ${{ toJSON(github) }}
+      run : echo ${{ toJSON(job) }}
     #Email on Failure
     - name: Failed Test
       if: cancelled()
