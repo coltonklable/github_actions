@@ -20,8 +20,8 @@ import org.openqa.selenium.Keys as Keys
 // open browser
 WebUI.openBrowser("https://birdsarentreal.com/")
 
-//break the shits
-WebUI.click(findTestObject('Object Repository/Test1_OR/Page_Birds Arent Real  Birds Arent Real/input_Contact Us_q'))
+//break the test
+//WebUI.click(findTestObject('Object Repository/Test1_OR/Page_Birds Arent Real  Birds Arent Real/input_Contact Us_q'))
 
 //close browser
 WebUI.closeBrowser()
