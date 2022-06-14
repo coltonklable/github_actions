@@ -21,9 +21,9 @@ jobs:
           args: '-noSplash -retry=0 -browserType=Chrome -testSuitePath="Test Suites/SuiteOne" -apiKey= ${{ secrets.API_KEY }} --config -webui.autoUpdateDrivers=true'
     #Email on Success
     - name: Successful Test
-      shell: cmd
       if: success()
       run : echo ${{ toJSON(job) }}
+      shell: bash
     #Email on Failure
     - name: Failed Test
       if: cancelled()
