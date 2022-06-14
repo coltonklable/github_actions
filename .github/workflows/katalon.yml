@@ -2,7 +2,7 @@ name: Testing Katalon Run-Time
 on:
   push:
   schedule:
-    - cron: '30 4 * * *' #at 5 pm (23:00 pm UTC) 
+    - cron: '0 17 * * *' #at 5 pm (23:00 pm UTC) 
   
 
 jobs:
