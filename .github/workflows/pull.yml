@@ -8,5 +8,5 @@ jobs:
     steps:
       - name: cloning repo 
         run: |
-          git clone git@github.com:coltonklable/actions.git
+          git clone https://github.com/coltonklable/github_actions.git
           ls
