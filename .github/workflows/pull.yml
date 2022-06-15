@@ -1,0 +1,12 @@
+name: Pull Repo
+
+on: push
+
+jobs:
+  pull-repo:
+    runs-on: ubuntu-latest
+    steps:
+      - name: cloning repo 
+        run: |
+          git clone git@github.com:coltonklable/actions.git
+          ls
