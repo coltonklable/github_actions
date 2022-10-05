@@ -1,6 +1,12 @@
 name: Actions Workflow
 
-on: pull_request
+on: 
+  pull_request:
+  
+  repository_dispatch:
+    types: [ run-github-actions ]
+    
+  workflow_dispatch:
   # push: 
   #   branches: #can also do branches-ignore, but not simultaneously
   #     - master
@@ -10,8 +16,7 @@ on: pull_request
   #     - v1.* 
   #   paths:
   #     - '**.js' #will match any javascript file in repo
-  # repository_dispatch: 
-  #    types: [build]
+
   #push:
   # pull-request:
   #   #make an object
